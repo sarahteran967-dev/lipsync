@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laboratorio de Lipsync Modular | Sarah & Elena</title>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --card-bg: #161b22;
+      --border: #30363d;
+      --accent: #58a6ff;
+      --accent-hover: #1f6feb;
+      --text: #c9d1d9;
+      --text-bright: #f0f6fc;
+      --tag-green: #238636;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, monospace; }
+    body { background-color: var(--bg); color: var(--text); display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; padding: 20px; }
+    .container { max-width: 800px; width: 100%; text-align: center; }
+    h1 { color: var(--text-bright); font-size: 2rem; margin-bottom: 8px; }
+    p.subtitle { color: #8b949e; margin-bottom: 30px; font-size: 0.95rem; }
+    .badge { display: inline-block; background-color: var(--tag-green); color: #fff; font-size: 0.75rem; font-weight: bold; padding: 3px 8px; border-radius: 12px; margin-bottom: 20px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 40px; }
+    .card { background-color: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 24px; text-align: left; display: flex; flex-direction: column; justify-content: space-between; transition: border-color 0.2s, transform 0.2s; }
+    .card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .card h2 { color: var(--text-bright); font-size: 1.25rem; margin-bottom: 10px; }
+    .card p { font-size: 0.9rem; color: #8b949e; line-height: 1.4; margin-bottom: 20px; }
+    .specs { list-style: none; font-size: 0.8rem; color: #8b949e; margin-bottom: 20px; }
+    .specs li { margin-bottom: 6px; }
+    .specs li strong { color: var(--text); }
+    .btn { display: block; text-align: center; background-color: var(--accent); color: #fff; text-decoration: none; padding: 10px 16px; border-radius: 6px; font-weight: 600; font-size: 0.9rem; transition: background-color 0.2s; }
+    .btn:hover { background-color: var(--accent-hover); }
+    footer { border-top: 1px solid var(--border); padding-top: 20px; font-size: 0.85rem; color: #8b949e; }
+    footer a { color: var(--accent); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <span class="badge">Pipeline Local $0.00 USD</span>
+    <h1>Arquitectura de Lipsync Modular en JavaScript</h1>
+    <p class="subtitle">Demostraciones interactivas desacopladas de GPU. Sin consumo de tokens ni servidores en la nube.</p>
+
+    <div class="grid">
+      <!-- Prototipo Nivel 1 -->
+      <div class="card">
+        <div>
+          <h2>Nivel 1: Títere Reactivo (RMS)</h2>
+          <p>Mapeo binario de 2 estados (boca abierta / boca cerrada) calibrado por umbral de volumen (Noise Gate).</p>
+          <ul class="specs">
+            <li><strong>Tecnología:</strong> Web Audio API (Analizador RMS)</li>
+            <li><strong>Assets:</strong> 2 Sprites PNG + Audio limpio</li>
+            <li><strong>Carga computacional:</strong> ~0.5% CPU</li>
+          </ul>
+        </div>
+        <a href="./01_lipsync_sprites/" class="btn">Lanzar Demo Nivel 1</a>
+      </div>
+
+      <!-- Prototipo Nivel 2 -->
+      <div class="card">
+        <div>
+          <h2>Nivel 2: Visemas Fonéticos (FFT)</h2>
+          <p>Detección de formantes espectrales para modular vocales (A, E, I, O, U) en tiempo real sin deformar el set.</p>
+          <ul class="specs">
+            <li><strong>Tecnología:</strong> Transformada Rápida de Fourier (FFT)</li>
+            <li><strong>Assets:</strong> 5 Sprites de visemas desacoplados</li>
+            <li><strong>Carga computacional:</strong> ~1.0% CPU</li>
+          </ul>
+        </div>
+        <a href="./02_lipsync_visemas/" class="btn">Lanzar Demo Nivel 2</a>
+      </div>
+    </div>
+
+    <footer>
+      <p>Desarrollado para el Laboratorio Técnico Xenogénesis | Código abierto bajo licencia MIT.</p>
+    </footer>
+  </div>
+</body>
+</html>
